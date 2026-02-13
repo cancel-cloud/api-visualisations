@@ -3,17 +3,23 @@
 import { memo, useMemo } from "react";
 import {
   ArcElement,
+  BarController,
   BarElement,
   CategoryScale,
   Chart as ChartJS,
+  DoughnutController,
   Filler,
   Legend,
+  LineController,
   LineElement,
   LinearScale,
+  PieController,
   PointElement,
+  PolarAreaController,
   RadarController,
   RadialLinearScale,
   ScatterController,
+  BubbleController,
   Tooltip,
 } from "chart.js";
 import { Chart } from "react-chartjs-2";
@@ -22,6 +28,12 @@ import { buildChartJsChart } from "@/lib/datasets/transforms/chartjs";
 import type { BaseDatasetBundle, SortOrder } from "@/lib/types";
 
 ChartJS.register(
+  BarController,
+  LineController,
+  PieController,
+  DoughnutController,
+  PolarAreaController,
+  BubbleController,
   CategoryScale,
   LinearScale,
   RadialLinearScale,
