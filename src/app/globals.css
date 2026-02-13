@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #f4ede1;
+  --paper: #fffaf0;
+  --ink: #1f2937;
+  --ink-muted: #475569;
+  --accent: #7c3aed;
+  --accent-chartjs: #7c3aed;
+  --accent-recharts: #ea580c;
+  --accent-echarts: #0f766e;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-interface);
+  --font-display: var(--font-editorial);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 14%, rgba(124, 58, 237, 0.12), transparent 34%),
+    radial-gradient(circle at 84% 22%, rgba(234, 88, 12, 0.11), transparent 36%),
+    radial-gradient(circle at 64% 72%, rgba(15, 118, 110, 0.08), transparent 44%),
+    linear-gradient(180deg, #fffcf6 0%, var(--bg) 54%, #efe7d8 100%);
+  font-family: var(--font-interface), sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-editorial), serif;
+  scroll-margin-top: 1rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: -120px;
+  left: 1rem;
+  z-index: 80;
+  border-radius: 0.5rem;
+  background: #111827;
+  color: #ffffff;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
+a,
+button,
+input,
+select,
+summary {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(17, 24, 39, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
